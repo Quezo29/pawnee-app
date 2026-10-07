@@ -49,11 +49,12 @@ export function ListaAvistamientos() {
       </p>
 
       {cargando && <p>Cargando avistamientos...</p>}
-      {!cargando && error && <p>Error: {error}</p>}
+      {!cargando && error && <p className="aviso">Error: {error}</p>}
       {!cargando && !error && avistamientos.length === 0 && <p>Todavía no hay avistamientos registrados.</p>}
 
       {!cargando && !error && avistamientos.length > 0 && (
-        <table border={1} cellPadding={6}>
+        <div className="tabla-contenedor">
+        <table>
           <thead>
             <tr>
               <th>Fecha</th>
@@ -81,6 +82,7 @@ export function ListaAvistamientos() {
             ))}
           </tbody>
         </table>
+        </div>
       )}
     </div>
   );

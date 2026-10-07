@@ -56,7 +56,7 @@ export function DetalleCriatura() {
   }
 
   if (cargando) return <p>Cargando...</p>;
-  if (error) return <p>Error: {error}</p>;
+  if (error) return <p className="aviso">Error: {error}</p>;
   if (!criatura) return <p>No se encontró la criatura.</p>;
 
   return (
@@ -67,11 +67,23 @@ export function DetalleCriatura() {
 
       <h1>{criatura.nombre}</h1>
 
-      <ul>
-        <li>Tipo: {criatura.tipo}</li>
-        <li>Nivel de peligro: {criatura.nivelPeligro}</li>
-        <li>Estado: {criatura.estado}</li>
-        <li>Habilidades: {criatura.habilidades.join(", ") || "(ninguna registrada)"}</li>
+      <ul className="datos">
+        <li>
+          <span>Tipo</span>
+          {criatura.tipo}
+        </li>
+        <li>
+          <span>Nivel de peligro</span>
+          {criatura.nivelPeligro}
+        </li>
+        <li>
+          <span>Estado</span>
+          {criatura.estado}
+        </li>
+        <li>
+          <span>Habilidades</span>
+          {criatura.habilidades.join(", ") || "(ninguna registrada)"}
+        </li>
       </ul>
 
       <p>
@@ -91,10 +103,11 @@ export function DetalleCriatura() {
       {avistamientos.length === 0 ? (
         <p>Todavía no hay avistamientos registrados para esta criatura.</p>
       ) : (
-        <ul>
+        <ul className="bitacora">
           {avistamientos.map((avistamiento) => (
             <li key={avistamiento._id}>
-              {avistamiento.fecha.slice(0, 10)} — {avistamiento.testigo} en {avistamiento.ubicacion}
+              <time>{avistamiento.fecha.slice(0, 10)}</time>
+              {avistamiento.testigo} en {avistamiento.ubicacion}
               {avistamiento.descripcion ? ` (${avistamiento.descripcion})` : ""}
             </li>
           ))}

@@ -84,7 +84,7 @@ export function FormularioCriatura() {
     <div>
       <h1>{esEdicion ? "Editar criatura" : "Registrar criatura nueva"}</h1>
 
-      {error && <p>Error: {error}</p>}
+      {error && <p className="aviso">Error: {error}</p>}
 
       <form onSubmit={manejarEnvio}>
         <p>

@@ -71,7 +71,7 @@ export function FormularioAvistamiento() {
     <div>
       <h1>Registrar avistamiento</h1>
 
-      {error && <p>Error: {error}</p>}
+      {error && <p className="aviso">Error: {error}</p>}
 
       <form onSubmit={manejarEnvio}>
         <p>
