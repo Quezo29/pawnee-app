@@ -2,6 +2,9 @@
   "name": "api-pawnee-mongoose",
   "version": "1.0.0",
   "description": "API Express + Mongoose para el Departamento de Parques y Fenomenos Inexplicables de Pawnee",
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "dev": "tsx watch src/index.ts",
     "build": "tsc",
